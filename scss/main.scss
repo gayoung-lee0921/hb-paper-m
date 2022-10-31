@@ -1,0 +1,469 @@
+@import "vars";
+@import "mixins";
+
+#main-visual {
+  height: 100vh;
+  min-height: 100h;
+  overflow: hidden;
+  .mask {
+    overflow: hidden;
+  }
+  li {
+    position: relative;
+    &.visual01 .img {
+      background-image: url("../imges/main/main01.jpg");
+    }
+    &.visual02 .img {
+      background-image: url("../imges/main/main02.jpg");
+    }
+    &.swiper-slide-active {
+      img {
+        transform: scale(1);
+      }
+    }
+
+    .img {
+      height: 100vh;
+      background-size: cover;
+      background-position: 50%;
+      background-repeat: no-repeat;
+      transform: scale(1.2);
+      transition: all 5s ease;
+      transition-delay: 0.5s;
+    }
+    .text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      font-size: 16px;
+      line-height: 1.25;
+      color: #fff;
+      z-index: 2;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      strong {
+        font-weight: 700;
+        font-size: clamp(20px, 7.5vw, 36px);
+        display: block;
+        margin-top: 30px;
+      }
+    }
+  }
+}
+.section {
+  // height: 100vh;
+  // display: flex;
+  // align-items: center;
+  height: 100vh;
+  min-height: 100vh;
+  .title-box {
+    margin-bottom: 50px;
+    h2 {
+      font-size: 16px;
+      color: $main-color;
+      font-weight: 500;
+    }
+    p {
+      font-size: 20px;
+      font-weight: 500;
+      margin-top: 30px;
+      line-height: 1.25;
+      br {
+        content: "";
+      }
+    }
+  }
+  .circle-txt {
+    font-size: 18px;
+    z-index: 2;
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: 0.5em;
+    position: absolute;
+    right: 80px;
+    top: 0;
+    text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+    animation: circle-ani 20s linear infinite;
+  }
+}
+
+#business {
+  overflow: hidden;
+  height: auto;
+  min-height: 100vh;
+  .container {
+    position: relative;
+    padding: 20px;
+  }
+  ul {
+    display: flex;
+    justify-content: space-between;
+    li {
+      &:nth-last-child(1) {
+        margin-top: -50px;
+      }
+      img {
+        border-radius: 20px;
+      }
+      .txt {
+        margin-top: 40px;
+        h3 {
+          font-size: $h3;
+          font-weight: 500;
+        }
+        p {
+          font-size: 18px;
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+}
+#product {
+  height: auto;
+  min-height: auto;
+  ul .container {
+    padding: 20px 20px 200px 20px;
+  }
+  .title-box {
+    p {
+      font-size: 14px;
+    }
+    strong {
+      font-size: 20px;
+      font-weight: 700;
+      display: block;
+      margin-top: 30px;
+    }
+    a {
+      text-transform: uppercase;
+      display: block;
+      font-size: 16px;
+      font-weight: 500;
+      margin-top: 50px;
+      &:after {
+        content: "\f061";
+        font-family: "FontAwesome";
+        margin-left: 10px;
+      }
+    }
+  }
+  li {
+    height: auto;
+    background-size: cover;
+    background-position: 50% 50%;
+    display: flex;
+    align-items: center;
+  }
+  @for $i from 1 through 7 {
+    .product0#{$i} {
+      background-image: url("../imges/main/ms3_0#{$i}.jpg");
+    }
+  }
+  .circle-txt {
+    right: 100px;
+    top: 30px;
+  }
+  .control-box {
+    position: absolute;
+    bottom: 30px;
+    z-index: 3;
+    width: 100%;
+    .container {
+      padding: 20px;
+      display: flex;
+      align-items: center;
+    }
+    .btns {
+      margin-left: 30px;
+      button {
+        font-size: 22px;
+      }
+      .btn-play {
+        display: none;
+      }
+    }
+    .pagination-box {
+      position: relative;
+    }
+    .pagination {
+      .swiper-pagination-bullet {
+        width: 8px;
+        height: px;
+        // opacity가 0.2로 기본값이 돼있음
+        opacity: 1;
+        background-color: #fff;
+        border: 3px solid #111;
+        margin: 0;
+        margin-right: 20px;
+        transition: background-color 5s linear;
+        &-active {
+          background-color: #111;
+        }
+        &:nth-last-child(1) {
+          margin-right: 0;
+        }
+      }
+    }
+    .line {
+      position: absolute;
+      // z-index는 position이 있어얃 됨
+      z-index: -1;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: #111;
+      top: 50%;
+      margin-top: -3px;
+      transform-origin: 0 50%;
+      transition: all 5s linear;
+    }
+  }
+}
+#news {
+  height: auto;
+  min-height: auto;
+  .container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .title-box {
+      p {
+        font-size: 16px;
+      }
+      strong {
+        font-size: 20px;
+        font-weight: 700;
+        display: block;
+        margin-top: 20px;
+      }
+      a {
+        text-transform: uppercase;
+        display: block;
+        font-size: 16px;
+        font-weight: 500;
+        margin-top: 20px;
+        &:after {
+          content: "\f061";
+          font-family: "FontAwesome";
+          margin-left: 10px;
+        }
+      }
+    }
+    .contents-box {
+      width: 100%;
+      .notice {
+        display: flex;
+        padding: 15px 10px;
+        font-size: 14px;
+        border-top: 3px solid #111;
+        border-bottom: 1px solid #111;
+        align-items: center;
+        .sticker {
+          white-space: nowrap;
+        }
+        .date {
+          margin-left: auto;
+          font-size: 12px;
+          display: none;
+        }
+        p {
+          font-weight: 500;
+          margin-left: 10px;
+          @include ellipsis;
+        }
+      }
+      .notice-list-box {
+        padding: 30px 0;
+        border-bottom: 1px solid #111;
+        li {
+          background: url("../imges/main/news01.jpg");
+          background-size: cover;
+          border-radius: 20px;
+          overflow: hidden;
+          a {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 30px;
+            font-size: $h4;
+            background-color: rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transition: all 0.25s ease;
+            &:hover {
+              opacity: 1;
+            }
+
+            .sticker {
+              font-weight: 500;
+            }
+            p {
+              @include multiElilipsis;
+              margin-top: 20px;
+            }
+            .more {
+              @include icon("\f061") {
+                display: block;
+                margin-top: 20px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+#footer {
+  height: auto;
+  min-height: auto;
+  background: #333;
+  color: #fff;
+  .container {
+    padding: 20px;
+  }
+  .util-box {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      ul {
+        display: flex;
+        font-size: 14px;
+        li {
+          margin-right: 10px;
+          font-weight: 500;
+          width: auto;
+          &:nth-last-child(1) {
+            margin-right: 0;
+          }
+        }
+      }
+      .util {
+        margin-top: 30px;
+      }
+    }
+  }
+  .addr-box {
+    padding: 0;
+    font-size: 14px;
+    line-height: 1.5;
+
+    address {
+      margin-bottom: 30px;
+    }
+  }
+}
+#fp-nav {
+  transition: all 0.25s ease-in-out 0.5s;
+  &.color {
+    ul {
+      li {
+        a {
+          span {
+            background-color: #111 !important;
+            &::before {
+              border-color: #111;
+            }
+          }
+        }
+        .fp-tooltip {
+          color: #111;
+        }
+      }
+    }
+  }
+  &.fp-right {
+    right: 50px;
+  }
+  &.last {
+    right: -200px;
+  }
+  ul {
+    li {
+      width: 30px;
+      height: 30px;
+      margin: 30px 0;
+      $bg-color: #fff;
+      &:nth-last-child(1) {
+        display: none;
+      }
+      &:hover {
+        a,
+        a.active {
+          span {
+            width: 5px;
+            height: 5px;
+            background-color: $bg-color;
+            margin: 0;
+          }
+        }
+      }
+      a {
+        &.active {
+          span {
+            width: 5px;
+            height: 5px;
+            background-color: $bg-color;
+            margin: 0;
+            &::before {
+              transform: translate(-50%, -50%) scale(1);
+            }
+          }
+        }
+        span {
+          width: 5px;
+          height: 5px;
+          background-color: $bg-color;
+          margin: 0;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          box-sizing: border-box;
+
+          &::before {
+            transition: all 0.5s ease;
+            content: "";
+            display: block;
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            border: 3px solid #fff;
+            left: 50%;
+            top: 50%;
+            border-radius: 100px;
+            // 축 똑바로 하게 하려고
+            transform: translate(-50%, -50%) scale(0);
+          }
+        }
+      }
+
+      .fp-tooltip {
+        text-transform: uppercase;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 16px;
+        font-weight: 700;
+        font-family: "Roboto";
+        opacity: 0.5;
+        width: auto;
+        &.fp-right {
+          right: 60px;
+        }
+      }
+      a.active + .fp-tooltip {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+@keyframes circle-ani {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
